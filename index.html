@@ -4,7 +4,8 @@
       <title>My page</title>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="public/styles/styles.css">
+      <link rel="stylesheet" href="public/styles/styles.css">  
+      <script type="text/javascript" src="public/script/app.js"></script>
    </head>
 
    <body>
@@ -74,32 +75,6 @@
          <div class="footer">
             <h2>footer</h2>
          </div>
-
-      <script>
-         window.onscroll = function() {myFunction()};
-         var navbar = document.getElementById("myNavbar");
-         var sticky = navbar.offsetTop;
-         function myFunction() {
-            if (window.pageYOffset > sticky) {
-               navbar.classList.add("sticky");
-            } else {
-               navbar.classList.remove("sticky");
-            }
-         }
-      </script>
-
-      <script>
-         window.onscroll = function() {myFunction()};
-         var navbar = document.getElementById("sideId");
-         var sticky = side.offsetTop;
-         function myFunction() {
-            if (window.pageYOffset > sticky) {
-               side.classList.add("sticky");
-            } else {
-               side.classList.remove("sticky");
-            }
-         }
-      </script>
 
    </body>
 </html>
