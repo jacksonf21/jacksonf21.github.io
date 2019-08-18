@@ -1,37 +1,52 @@
 
 $(document).ready(() => {
+  const url = 'https://www.reddit.com/r/Warframe/.json';
 
+  //SANITIZE
   const escape = str => {
     let div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
 
-  const promise1 = () => {
+  const promise1 = (url) => {
     return new Promise((resolve, reject) => {
-      $.getJSON('https://www.reddit.com/r/heroesofthestorm/.json', (data) => {
+      $.getJSON(url, (data) => {
         resolve(data);
       });
     });
   };
 
-  const appendData = (data) => {
-    const post = [];
-    // console.log(data.data.children[0].data.title);
-    data.data.children.forEach(child => {
-      console.log(child.data.title);
-      post.push(child.data.title);
-    });
-
-    // console.log(data.data.children);
-    let html = `<p>${escape(post)}</p>`;
-    $('#apiDump').append(html);
+  const newQuery = (data) => {
+    return `${url}?count=25&after=${data.data.after}`;
   };
 
+  //USING UTC
+  const hoursAgo = (ms) => {
+    return ((Date.now() / 1000) - ms) / 3600;
+  };
+
+  const appendData = (data) => {
+    let htmlTotal = '';
+    
+    data.data.children.forEach(child => {
+      htmlTotal += `<li>${escape(child.data.title)} ${Math.round(hoursAgo(child.data.created_utc))} hours ago</li>`;
+    });
+    
+    $('#apiDump').append(htmlTotal);
+  };
+
+  //CURRENTLY SET FOR ONLY 2 API PAGES AND NOT FLEXIBLE
   $('#api').submit((event) => {
     event.preventDefault();
-    promise1()
-      .then((data) => appendData(data));
+
+    promise1(url)
+      .then(data => {
+        appendData(data);
+        promise1(newQuery(data))
+          .then((data) => appendData(data));
+      });
+
   });
 
 });
