@@ -16,8 +16,15 @@ $(document).ready(() => {
   };
 
   const appendData = (data) => {
-    console.log(data.data);
-    let html = `<p>${escape(data)}</p>`;
+    const post = [];
+    // console.log(data.data.children[0].data.title);
+    data.data.children.forEach(child => {
+      console.log(child.data.title);
+      post.push(child.data.title);
+    });
+
+    // console.log(data.data.children);
+    let html = `<p>${escape(post)}</p>`;
     $('#apiDump').append(html);
   };
 
