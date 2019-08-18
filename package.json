@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/jacksonf21/jacksonf21.github.io/issues"
   },
-  "homepage": "https://github.com/jacksonf21/jacksonf21.github.io#readme"
+  "homepage": "https://github.com/jacksonf21/jacksonf21.github.io#readme",
+  "dependencies": {
+    "request": "^2.88.0"
+  }
 }
