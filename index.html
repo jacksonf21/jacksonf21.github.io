@@ -1,89 +1,102 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>My page</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+   <head>
+      <title>My page</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="public/styles/styles.css">
+   </head>
 
-<div class="header">
-   <h1>Page Start</h1>
-</div>
+   <body>
 
-<!-- Navigation Bar -->
-<div class="navbar" id="myNavbar">
-   <a href="#">Archive</a>
-   <a href="#">Resources</a>
-   <a href="#">External Links</a>
-   <a href="#">About Us</a>
-</div>
-
-<!-- Content -->
-<div class="content">
-
-   <div class="leftside">
-   </div>
-
-     <div class="main">
-      <h1>August 31st, 2018</h1>
-      <h2>Entry of the Series</h2>
-      <p>The brief synopsis of the objective goes here while it continues here due to the line break</p>
-      
-      <img src="ehigh.JPG" alt="placeholder">
-      <p>THIS IS A TEST TO SEE COMMITS</p>p>
-      <p>Is the above how you feel at night? Consider listening to this here</p>
-
-      <img src="placeholder.jpg" alt="placeholder">
-      <p>description of the image above</p>
-
-      <img src="placeholder.jpg" alt="placeholder">
-      <p>description of the image above</p>
-   </div>
-   
-   <div class="flex-container">
-      <div class="side" id="sideId">
-         <h2>Description</h2>
-         <h5>Description</h5>
-         <div class="sideimg" style="height:200px;">Image</div>
-         <p>placeholder placeholder </p>
-         <h3>placeholder</h3>
-         <p>paragraph description</p>
+      <div class="header">
+         <h1>Page Start</h1>
       </div>
-   </div>
 
-</div>
+      <!-- Navigation Bar -->
+      <div class="navbar" id="myNavbar">
+         <a href="#">Archive</a>
+         <a href="#">Resources</a>
+         <a href="#">External Links</a>
+         <a href="#">About Us</a>
+      </div>
 
-   <div class="footer">
-      <h2>footer</h2>
-   </div>
+      <!-- Content -->
+      <div class="content">
 
-<script>
-   window.onscroll = function() {myFunction()};
-   var navbar = document.getElementById("myNavbar");
-   var sticky = navbar.offsetTop;
-   function myFunction() {
-      if (window.pageYOffset > sticky) {
-         navbar.classList.add("sticky");
-      } else {
-         navbar.classList.remove("sticky");
-      }
-   }
-</script>
+         <div class="leftside">
+         </div>
 
-<script>
-   window.onscroll = function() {myFunction()};
-   var navbar = document.getElementById("sideId");
-   var sticky = side.offsetTop;
-   function myFunction() {
-      if (window.pageYOffset > sticky) {
-         side.classList.add("sticky");
-      } else {
-         side.classList.remove("sticky");
-      }
-   }
-</script>
+         <div class="main">
+            
+            <h1>API Request</h1>
+            <form action='/' request='GET'>
+               <submit>
+                  <button>Click Me!</button>
+               </submit>
+               <p>
+                     Until recently, the prevailing view assumed lorem ipsum was born as a nonsense text. “It's not Latin, though it looks like it, and it actually says nothing,” Before & After magazine answered a curious reader, “Its ‘words’ loosely approximate the frequency with which letters occur in English, which is why at a glance it looks pretty real.”
 
-</body>
+                     As Cicero would put it, “Um, not so fast.”
+                     
+                     The placeholder text, beginning with the line “Lorem ipsum dolor sit amet, consectetur adipiscing elit”, looks like Latin because in its youth, centuries ago, it was Latin.
+                     
+                     Richard McClintock, a Latin scholar from Hampden-Sydney College, is credited with discovering the source behind the ubiquitous filler text. In seeing a sample of lorem ipsum, his interest was piqued by consectetur—a genuine, albeit rare, Latin word. Consulting a Latin dictionary led McClintock to a passage from De Finibus Bonorum et Malorum (“On the Extremes of Good and Evil”), a first-century B.C. text from the Roman philosopher Cicero.
+                     
+                     In particular, the garbled words of lorem ipsum bear an unmistakable resemblance to sections 1.10.32–33 of Cicero's work, with the most notable passage excerpted below:
+                     
+                     “Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.”
+                     A 1914 English translation by Harris Rackham reads:
+                     
+                     “Nor is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but occasionally circumstances occur in which toil and pain can procure him some great pleasure.”
+                     McClintock's eye for detail certainly helped narrow the whereabouts of lorem ipsum's origin, however, the “how and when” still remain something of a mystery, with competing theories and timelines.
+               </p>
+            </form>
+
+         </div>
+         
+         <div class="flex-container">
+            <div class="side" id="sideId">
+               <h2>Description</h2>
+               <h5>Description</h5>
+               <div class="sideimg" style="height:200px;">Image</div>
+               <p>placeholder placeholder </p>
+               <h3>placeholder</h3>
+               <p>paragraph description</p>
+            </div>
+         </div>
+
+      </div>
+
+         <div class="footer">
+            <h2>footer</h2>
+         </div>
+
+      <script>
+         window.onscroll = function() {myFunction()};
+         var navbar = document.getElementById("myNavbar");
+         var sticky = navbar.offsetTop;
+         function myFunction() {
+            if (window.pageYOffset > sticky) {
+               navbar.classList.add("sticky");
+            } else {
+               navbar.classList.remove("sticky");
+            }
+         }
+      </script>
+
+      <script>
+         window.onscroll = function() {myFunction()};
+         var navbar = document.getElementById("sideId");
+         var sticky = side.offsetTop;
+         function myFunction() {
+            if (window.pageYOffset > sticky) {
+               side.classList.add("sticky");
+            } else {
+               side.classList.remove("sticky");
+            }
+         }
+      </script>
+
+   </body>
 </html>
