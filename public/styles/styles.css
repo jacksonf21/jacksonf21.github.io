@@ -111,7 +111,8 @@ body {
   padding-top: 30px;
 }
 
-.navheader {
-  padding-top	
-} 
-
+#chart {
+  margin-left: 6em;
+  width: 400px;
+  height: 400px;
+}

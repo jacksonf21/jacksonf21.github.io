@@ -1,6 +1,7 @@
 
 $(document).ready(() => {
   const url = 'https://www.reddit.com/r/Warframe/.json';
+  const hours = [0, 0, 0, 0];
 
   //SANITIZE
   const escape = str => {
@@ -43,11 +44,75 @@ $(document).ready(() => {
     promise1(url)
       .then(data => {
         appendData(data);
+        aggHr(data);
         promise1(newQuery(data))
-          .then((data) => appendData(data));
+          .then((data) => {
+            appendData(data);
+            aggHr(data);
+            hourChart(hours);
+          });
       });
 
   });
 
+  const aggHr = (dataset) => {
+    
+    dataset.data.children.forEach(child => {
+      let hour = Math.round(hoursAgo(child.data.created_utc));
+      if (hour <= 3) {
+        hours[0] += 1;
+      } else if (hour <= 8) {
+        hours[1] += 1;
+      } else if (hour <= 24) {
+        hours[2] += 1;
+      } else {
+        hours[3] += 1;
+      }
+    });
+  };
+
+  const hourChart = (hours) => {
+    const ctx = document.getElementById('myChart').getContext('2d');
+    //[0] 0-3 hours
+    //[1] 3-8 hours
+    //[2] 8-24 hours
+    //[3] 24+
+    
+    // hours.push(Math.round(hoursAgo(child.data.created_utc)));
+
+    const myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['0-3h', '3-8h', '8-24h', '24h+'],
+        datasets: [{
+          label: 'post creation',
+          data: hours,
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+  };
+  
 });
 
