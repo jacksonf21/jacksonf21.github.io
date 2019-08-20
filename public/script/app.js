@@ -12,15 +12,16 @@ $(document).ready(() => {
     return div.innerHTML;
   };
 
-  const promise1 = (url) => {
-    return new Promise((resolve, reject) => {
-      $.getJSON(url, (data) => {
-        aggHr(data);
-        appendData(data);
-        resolve(data);
-      });
-    });
-  };
+  //ON HOLD UNCOMMENT TO RESUME
+  // const promise1 = (url) => {
+  //   return new Promise((resolve, reject) => {
+  //     $.getJSON(url, (data) => {
+  //       aggHr(data);
+  //       appendData(data);
+  //       resolve(data);
+  //     });
+  //   });
+  // };
 
   const reset = () => {
     url = '';
